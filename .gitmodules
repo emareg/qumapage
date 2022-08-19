@@ -1,0 +1,4 @@
+[submodule "make/t4t"]
+	path = make/t4t
+	url = git@github.com:emareg/t4tlib.git
+	branch = master
