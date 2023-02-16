@@ -36,5 +36,9 @@ make
 xdg-open build/qmp-template.html
 ```
 
-
+### LaTeX Dependencies
+```
+sudo apt update
+sudo apt install texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-science texlive-luatex
+```
 
