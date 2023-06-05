@@ -7,7 +7,7 @@ SRC_EXT := .md
 SRC_DIR := src
 
 # space separated list
-SRC_SUBDIRS := presentations test
+SRC_SUBDIRS :=
 
 BUILD_DIR := ./build
 TMP_DIR := ./tmp
@@ -74,8 +74,8 @@ TEX_FLAGS=--listings ${TEX_TEMPLATE} ${TEX_PREAMBLE}  --shift-heading-level-by=-
 
 
 # helper variables
-ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-
+# ROOT_DIR:="$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))"
+ROOT_DIR:=.
 
 
 # Manual Targets
@@ -115,6 +115,7 @@ medium:
 
 # install dependencies
 setup:
+	git submodule update --init
 	sudo apt install pandoc
 	pip3 install bokeh pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos --user
 	# install R packages
@@ -127,7 +128,7 @@ setup:
 init:
 	@mkdir -p $(BUILD_DIR)
 	@mkdir -p res
-	@mkdir -p $(foreach subdir, $(SRC_SUBDIRS), $(BUILD_DIR)/$(subdir))
+#	@mkdir -p $(foreach subdir, $(SRC_SUBDIRS), $(BUILD_DIR)/$(subdir))
 	@mkdir -p ${TMP_DIR}/res
 	@mkdir -p ${TMP_DIR}/res/dia
 	@mkdir -p ${TMP_DIR}/res/img
@@ -152,14 +153,12 @@ clean:
 ifeq ($(BUILD_DIR),.)
 	@echo "ERR: Makefile: 'BUILD_DIR := . ', will not perform clean."
 else
-	@echo "$(ROOT_DIR)/$(BUILD_DIR)/*"
-# rm -fr "$(ROOT_DIR)/$(BUILD_DIR)/*"
+	rm -fr "$(ROOT_DIR)/$(BUILD_DIR)"/*
 endif
 ifeq ($(TMP_DIR),.)
 	@echo "ERR: Makefile: 'TMP_DIR := . ', will not perform clean."
 else
-	@echo "$(ROOT_DIR)/$(TMP_DIR)/"
-# rm -ir "$(ROOT_DIR)/$(TMP_DIR)/*"
+	rm -fr "$(ROOT_DIR)/$(BUILD_DIR)"/*
 endif
 
 

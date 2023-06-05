@@ -1,5 +1,5 @@
 ---
-template: classless
+template: IEEEtran
 self-contained: false
 metadata:
   title: "QumaPage Sample File"
@@ -47,16 +47,17 @@ Example: An example.
 
 Warn: Do not do this.
 
-
-
-
+ 
+> Example: A Heading.
+> An Example
+ 
 > Warning: Do not run.
 > Running is too fast. 
 
 > **Warning: Do not run.**
 > Running is too fast. 
-
-
+ 
+ 
 <Blockquote class="warning">
 
 **Warning:**
@@ -138,7 +139,7 @@ With Another Text
 ### Figures
 
 #### Standard Image
-![Mountains as a test image from the web.](https://upload.wikimedia.org/wikipedia/commons/b/b6/Beautifull.png)
+<!-- ![Mountains as a test image from the web.](https://upload.wikimedia.org/wikipedia/commons/b/b6/Beautifull.png) -->
 
 
 #### Tikz Image in Code Block

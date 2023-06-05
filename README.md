@@ -24,13 +24,15 @@ Only 4 small steps are required to build your first document.
 
 
 1. Clone this repo
-2. open and edit `src/qmp-template.md`
-3. build the file using `make` command (Unix)
-4. open `build/qmp-template.html` in a browser
+2. Install dependencies via `make setup`
+3. open and edit `src/qmp-template.md`
+4. build the file using `make` command (Unix)
+5. open `build/qmp-template.html` in a browser
 
 ```bash
 git clone git@github.com:emareg/qumapage.git
 cd qumapage
+make setup
 xdg-open src/qmp-template.md
 make
 xdg-open build/qmp-template.html
